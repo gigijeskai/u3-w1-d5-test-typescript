@@ -1,8 +1,4 @@
 "use strict";
-document.addEventListener("DOMContentLoaded", () => {
-    let btn = document.querySelector(".container button");
-    btn === null || btn === void 0 ? void 0 : btn.addEventListener("click", daiInput);
-});
 class Smartphone {
     constructor(carica, numeroChiamate) {
         this.carica = carica;
@@ -15,7 +11,7 @@ class Smartphone {
     chiamata(durata) {
         this.numeroChiamate++;
         this.carica -= durata * 0.2;
-        if (this.carica === 0) {
+        if (this.carica <= 0) {
             console.log("non hai abbastanza credito per chiamare!");
         }
         return this.carica;
@@ -39,20 +35,83 @@ let user1 = new Smartphone(0, 0);
 // console.log(user1);
 // console.log(user1.ricarica(1));
 // console.log(user1.chiamata(4));
-function daiInput() {
-    let tempoChiamata = document.querySelector("#tempoChiamata");
-    let ricarica = document.querySelector("#credito");
-    let user1 = new Smartphone(parseInt(tempoChiamata.value), parseInt(ricarica.value));
-    mostraOpzioni(user1);
+// console.log(user1.chiamata(4));
+document.addEventListener("DOMContentLoaded", () => {
+    let display = document.querySelector("#display");
+    //   function mostraASchermo() {
+    //     display.innerHTML += `<p>${user1.carica}</p>`;
+    //   }
+    function chiama() {
+        let btnChiama = document.querySelector("#chiama");
+        btnChiama === null || btnChiama === void 0 ? void 0 : btnChiama.addEventListener("click", () => {
+            let tempoChiamata = prompt("quanto dura la chiamata? ");
+            let valoreTempoChiamata = Number(tempoChiamata);
+            let chiamata = user1.chiamata(valoreTempoChiamata);
+            display.innerHTML += `<p>${chiamata}</p>`;
+        });
+    }
+    function ricarica() {
+        let btnRicarica = document.querySelector("#ricarica");
+        btnRicarica === null || btnRicarica === void 0 ? void 0 : btnRicarica.addEventListener("click", () => {
+            let ricarica = prompt("quanto vuoi caricare?");
+            let valoreRicarica = Number(ricarica);
+            let carica = user1.ricarica(valoreRicarica);
+            display.innerHTML += `<p>${carica}</p>`;
+        });
+    }
+    function mostraSaldo() {
+        let btnSaldo = document.querySelector("#mostraSaldo");
+        btnSaldo === null || btnSaldo === void 0 ? void 0 : btnSaldo.addEventListener("click", () => {
+            let saldo = alert("il tuo saldo è  " + user1.numero404());
+        });
+    }
+    function chiamateEffettuate() {
+        let btnChiamateEffettuate = document.querySelector("#ChiamateEffettuate");
+        btnChiamateEffettuate === null || btnChiamateEffettuate === void 0 ? void 0 : btnChiamateEffettuate.addEventListener("click", () => {
+            let chiamateFatte = alert("hai effettuato " + user1.getNumeroChiamate());
+        });
+    }
+    //   function azzeraChiamate(){
+    //     let btnAzzeraChiamate = document.querySelector("#azzera')
+    //     btnAzzeraChiamate?.addEventListener("click", () => {
+    //         let azzeraChiamate = alert('azzera tutto' + user1.azzeraChiamate())
+    //     )}
+    //   }
+    ricarica();
+    chiama();
+    mostraSaldo();
+    chiamateEffettuate();
+});
+// function createSmartphone() {
+//   let chiamata = document.querySelector("#numeroChiamate") as HTMLInputElement;
+//   let ricarica = document.getElementById("#creditoResiduo") as HTMLInputElement;
+//   let utente1 = new Smartphone(Number(ricarica.value), Number(chiamata.value));
+//   return utente1;
+// }
+// function daiInput() {
+//   let tempoChiamata = document.querySelector("#tempoChiamata") as HTMLInputElement;
+//   let ricarica = document.querySelector("#credito") as HTMLInputElement;
+//   let user1 = new Smartphone(parseInt(tempoChiamata.value), parseInt(ricarica.value));
+//   mostraOpzioni(user1);
+// }
+/*
+function mostraOpzioni() {
+  let tempoChiamata = document.querySelector("#tempoChiamata") as HTMLInputElement;
+  let numeroTempoChiamata = Number(tempoChiamata);
+  let ricarica = document.querySelector("#credito") as HTMLInputElement;
+  let numeroRicarica = Number(ricarica);
+  let user1 = new Smartphone(numeroTempoChiamata, numeroRicarica);
+  let div = document.querySelector("#display");
+  let p = document.createElement("p");
+  p.innerHTML = ` <span> credito residuo: ${user1.numero404()}</span><br />
+   <span> numero di chiamate effettuate: ${user1.ricarica(numeroRicarica)}</span><br />
+   <span> numero di chiamate effettuate: ${user1.chiamata(numeroTempoChiamata)}</span><br />
+   <span> numero di chiamate effettuate: ${user1.getNumeroChiamate()}</span><br />
+   <span> azzera chiamate: ${user1.azzeraChiamate()}</span><br />`;
+  div?.appendChild(p);
 }
-function mostraOpzioni(obj) {
-    let div = document.querySelector("#display");
-    let p = document.createElement("p");
-    p.innerHTML = ` <span> credito residuo: ${obj.numero404()}</span><br />
-   <span> numero di chiamate effettuate: ${obj.getNumeroChiamate()}</span><br />
-   <span> azzera chiamate: ${obj.azzeraChiamate()}</span><br />`;
-    div === null || div === void 0 ? void 0 : div.appendChild(p);
-}
+/*
+
 // function daiInput() {
 //   let chiamata = document.querySelector("#tempoChiamata") as HTMLInputElement;
 //   let ricarica = document.querySelector("#credito") as HTMLInputElement;
@@ -65,6 +124,7 @@ function mostraOpzioni(obj) {
 //   p.innerHTML = `numero chiamate${obj.chiamata}
 //   credito${obj.ricarica}`;
 //   displayChiamate?.appendChild(p);
+
 // function display(obj: Smartphone) {}
 // function calcolaCreditoEChiamate() {
 //   let tempoChiamata = document.querySelector("#tempoChiamata") as HTMLInputElement;
@@ -79,6 +139,7 @@ function mostraOpzioni(obj) {
 // }<p>numero chiamate</p>${obj.getNumeroChiamate()}`;
 //   div?.appendChild(p);
 // }
+
 // document.addEventListener("DOMContentLoaded", () => {
 //   let btn = document.querySelectorAll(".addValue");
 //   btn.forEach((elem) => {
@@ -93,4 +154,4 @@ function mostraOpzioni(obj) {
 //     displayChiamate.value = chiamata.value;
 //     displayCredito.value = ricarica.value;
 //   }
-// });
+// });*/
