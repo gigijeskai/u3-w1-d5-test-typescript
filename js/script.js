@@ -1,4 +1,8 @@
 "use strict";
+document.addEventListener("DOMContentLoaded", () => {
+    let btn = document.querySelector(".container button");
+    btn === null || btn === void 0 ? void 0 : btn.addEventListener("click", daiInput);
+});
 class Smartphone {
     constructor(carica, numeroChiamate) {
         this.carica = carica;
@@ -32,9 +36,23 @@ class Smartphone {
     }
 }
 let user1 = new Smartphone(0, 0);
-console.log(user1);
-console.log(user1.ricarica(1));
-console.log(user1.chiamata(4));
+// console.log(user1);
+// console.log(user1.ricarica(1));
+// console.log(user1.chiamata(4));
+function daiInput() {
+    let tempoChiamata = document.querySelector("#tempoChiamata");
+    let ricarica = document.querySelector("#credito");
+    let user1 = new Smartphone(parseInt(tempoChiamata.value), parseInt(ricarica.value));
+    mostraOpzioni(user1);
+}
+function mostraOpzioni(obj) {
+    let div = document.querySelector("#display");
+    let p = document.createElement("p");
+    p.innerHTML = ` <span> credito residuo: ${obj.numero404()}</span><br />
+   <span> numero di chiamate effettuate: ${obj.getNumeroChiamate()}</span><br />
+   <span> azzera chiamate: ${obj.azzeraChiamate()}</span><br />`;
+    div === null || div === void 0 ? void 0 : div.appendChild(p);
+}
 // function daiInput() {
 //   let chiamata = document.querySelector("#tempoChiamata") as HTMLInputElement;
 //   let ricarica = document.querySelector("#credito") as HTMLInputElement;
