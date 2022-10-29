@@ -38,17 +38,24 @@ class Smartphone {
     }
 }
 let user1 = new Smartphone(0, 0);
+let user2 = new Smartphone(0, 0);
+let user3 = new Smartphone(0, 0);
 document.addEventListener("DOMContentLoaded", () => {
     let display = document.querySelector("#display");
+    function registraChiamata() {
+        let tempoChiamata = prompt("quanto dura la chiamata? ");
+        let valoreTempoChiamata = Number(tempoChiamata);
+        let chiamata = user1.chiamata(valoreTempoChiamata);
+        display.innerHTML = "";
+        display.innerHTML += `<p>${chiamata}</p>`;
+    }
     function chiama() {
-        let btnChiama = document.querySelector("#chiama");
-        btnChiama === null || btnChiama === void 0 ? void 0 : btnChiama.addEventListener("click", () => {
-            let tempoChiamata = prompt("quanto dura la chiamata? ");
-            let valoreTempoChiamata = Number(tempoChiamata);
-            let chiamata = user1.chiamata(valoreTempoChiamata);
-            display.innerHTML = "";
-            display.innerHTML += `<p>${chiamata}</p>`;
-        });
+        let btnChiama1 = document.querySelector("#chiama1");
+        btnChiama1 === null || btnChiama1 === void 0 ? void 0 : btnChiama1.addEventListener("click", registraChiamata);
+        let btnChiama2 = document.querySelector("#chiama2");
+        btnChiama2 === null || btnChiama2 === void 0 ? void 0 : btnChiama2.addEventListener("click", registraChiamata);
+        let btnChiama3 = document.querySelector("#chiama3");
+        btnChiama3 === null || btnChiama3 === void 0 ? void 0 : btnChiama3.addEventListener("click", registraChiamata);
     }
     function ricarica() {
         let btnRicarica = document.querySelector("#ricarica");
