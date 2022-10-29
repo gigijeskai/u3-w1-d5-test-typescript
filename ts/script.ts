@@ -14,6 +14,9 @@ class Smartphone {
     this.carica -= durata * 0.2;
     if (this.carica <= 0) {
       alert("non hai abbastanza credito per chiamare!");
+      let ricarica = prompt("devi fare una ricarica, il tuo saldo è 0");
+      let valoreRicarica = Number(ricarica);
+      return this.ricarica(valoreRicarica);
     }
     return this.carica;
     //deve aggiungere la chiamata a numero chiamate
@@ -88,78 +91,3 @@ document.addEventListener("DOMContentLoaded", () => {
   chiamateEffettuate();
   azzeraChiamate();
 });
-
-// function createSmartphone() {
-//   let chiamata = document.querySelector("#numeroChiamate") as HTMLInputElement;
-//   let ricarica = document.getElementById("#creditoResiduo") as HTMLInputElement;
-//   let utente1 = new Smartphone(Number(ricarica.value), Number(chiamata.value));
-//   return utente1;
-// }
-
-// function daiInput() {
-//   let tempoChiamata = document.querySelector("#tempoChiamata") as HTMLInputElement;
-//   let ricarica = document.querySelector("#credito") as HTMLInputElement;
-//   let user1 = new Smartphone(parseInt(tempoChiamata.value), parseInt(ricarica.value));
-//   mostraOpzioni(user1);
-// }
-/*
-function mostraOpzioni() {
-  let tempoChiamata = document.querySelector("#tempoChiamata") as HTMLInputElement;
-  let numeroTempoChiamata = Number(tempoChiamata);
-  let ricarica = document.querySelector("#credito") as HTMLInputElement;
-  let numeroRicarica = Number(ricarica);
-  let user1 = new Smartphone(numeroTempoChiamata, numeroRicarica);
-  let div = document.querySelector("#display");
-  let p = document.createElement("p");
-  p.innerHTML = ` <span> credito residuo: ${user1.numero404()}</span><br />
-   <span> numero di chiamate effettuate: ${user1.ricarica(numeroRicarica)}</span><br />
-   <span> numero di chiamate effettuate: ${user1.chiamata(numeroTempoChiamata)}</span><br />
-   <span> numero di chiamate effettuate: ${user1.getNumeroChiamate()}</span><br />
-   <span> azzera chiamate: ${user1.azzeraChiamate()}</span><br />`;
-  div?.appendChild(p);
-}
-/*
-
-// function daiInput() {
-//   let chiamata = document.querySelector("#tempoChiamata") as HTMLInputElement;
-//   let ricarica = document.querySelector("#credito") as HTMLInputElement;
-//   let user1 = new Smartphone(parseInt(chiamata.value), parseInt(ricarica.value));
-//   display(user1);
-// }
-// function display(obj: Smartphone) {
-//   let displayChiamate = document.querySelector("#chiamate");
-//   let p = document.createElement("p");
-//   p.innerHTML = `numero chiamate${obj.chiamata}
-//   credito${obj.ricarica}`;
-//   displayChiamate?.appendChild(p);
-
-// function display(obj: Smartphone) {}
-// function calcolaCreditoEChiamate() {
-//   let tempoChiamata = document.querySelector("#tempoChiamata") as HTMLInputElement;
-//   let ricarica = document.querySelector("#credito") as HTMLInputElement;
-//   let user1 = new Smartphone(parseInt(tempoChiamata.value), parseInt(ricarica.value));
-//   display(user1);
-// }
-// function display(obj: Smartphone) {
-//   let div = document.querySelector("#display");
-//   let p = document.createElement("p");
-//   p.innerHTML = `<p>saldo corrente</p>${obj.numero404()}
-// }<p>numero chiamate</p>${obj.getNumeroChiamate()}`;
-//   div?.appendChild(p);
-// }
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   let btn = document.querySelectorAll(".addValue");
-//   btn.forEach((elem) => {
-//     elem.addEventListener("click", ricarica);
-//   });
-//   function ricarica() {
-//     let chiamata = document.querySelector("#tempoChiamata") as HTMLInputElement;
-//     let ricarica = document.querySelector("#credito") as HTMLInputElement;
-//     let displayChiamate = document.querySelector("#chiamate") as HTMLInputElement;
-//     let displayCredito = document.querySelector("#credito") as HTMLInputElement;
-//     let user1 = new Smartphone(parseInt(chiamata.value), parseInt(ricarica.value));
-//     displayChiamate.value = chiamata.value;
-//     displayCredito.value = ricarica.value;
-//   }
-// });*/
