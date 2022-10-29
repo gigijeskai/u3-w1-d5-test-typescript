@@ -10,13 +10,14 @@ class Smartphone {
     return this.carica;
   }
   chiamata(durata: number) {
-    this.numeroChiamate++;
-    this.carica -= durata * 0.2;
     if (this.carica <= 0) {
       alert("non hai abbastanza credito per chiamare!");
       let ricarica = prompt("devi fare una ricarica, il tuo saldo è 0");
       let valoreRicarica = Number(ricarica);
       return this.ricarica(valoreRicarica);
+    } else {
+      this.numeroChiamate++;
+      this.carica -= durata * 0.2;
     }
     return this.carica;
     //deve aggiungere la chiamata a numero chiamate
