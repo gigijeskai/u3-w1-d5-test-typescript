@@ -1,6 +1,6 @@
 class Smartphone {
   carica: number;
-  numeroChiamate: number;
+  numeroChiamate: number = 0;
   constructor(carica: number, numeroChiamate: number) {
     this.carica = carica;
     this.numeroChiamate = numeroChiamate;
@@ -55,6 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
       let valoreTempoChiamata = Number(tempoChiamata);
       let chiamata = user1.chiamata(valoreTempoChiamata);
       display.innerHTML += `<p>${chiamata}</p>`;
+      display.innerHTML = "";
     });
   }
   function ricarica() {
@@ -63,7 +64,8 @@ document.addEventListener("DOMContentLoaded", () => {
       let ricarica = prompt("quanto vuoi caricare?");
       let valoreRicarica = Number(ricarica);
       let carica = user1.ricarica(valoreRicarica);
-      display.innerHTML += `<p>${carica}</p>`;
+      display.innerHTML = `<p>credito: ${carica}</p>`;
+      display.innerHTML = "";
     });
   }
   function mostraSaldo() {
