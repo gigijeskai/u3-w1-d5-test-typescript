@@ -36,15 +36,8 @@ class Smartphone {
     }
 }
 let user1 = new Smartphone(0, 0);
-// console.log(user1);
-// console.log(user1.ricarica(1));
-// console.log(user1.chiamata(4));
-// console.log(user1.chiamata(4));
 document.addEventListener("DOMContentLoaded", () => {
     let display = document.querySelector("#display");
-    //   function mostraASchermo() {
-    //     display.innerHTML += `<p>${user1.carica}</p>`;
-    //   }
     function chiama() {
         let btnChiama = document.querySelector("#chiama");
         btnChiama === null || btnChiama === void 0 ? void 0 : btnChiama.addEventListener("click", () => {
