@@ -1,6 +1,6 @@
 class Smartphone {
   carica: number;
-  numeroChiamate: number = 0;
+  private numeroChiamate: number = 0;
   constructor(carica: number, numeroChiamate: number) {
     this.carica = carica;
     this.numeroChiamate = numeroChiamate;
@@ -26,7 +26,7 @@ class Smartphone {
     return this.carica;
     // deve restituire il valore della carica
   }
-  getNumeroChiamate(): number {
+  public getNumeroChiamate(): number {
     return this.numeroChiamate;
     // deve restituire il numero di chiamate
   }
