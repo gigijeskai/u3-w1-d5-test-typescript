@@ -12,7 +12,7 @@ class Smartphone {
         this.numeroChiamate++;
         this.carica -= durata * 0.2;
         if (this.carica <= 0) {
-            console.log("non hai abbastanza credito per chiamare!");
+            alert("non hai abbastanza credito per chiamare!");
         }
         return this.carica;
         //deve aggiungere la chiamata a numero chiamate
@@ -66,21 +66,22 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
     function chiamateEffettuate() {
-        let btnChiamateEffettuate = document.querySelector("#ChiamateEffettuate");
+        let btnChiamateEffettuate = document.querySelector("#chiamateEffettuate");
         btnChiamateEffettuate === null || btnChiamateEffettuate === void 0 ? void 0 : btnChiamateEffettuate.addEventListener("click", () => {
             let chiamateFatte = alert("hai effettuato " + user1.getNumeroChiamate());
         });
     }
-    //   function azzeraChiamate(){
-    //     let btnAzzeraChiamate = document.querySelector("#azzera')
-    //     btnAzzeraChiamate?.addEventListener("click", () => {
-    //         let azzeraChiamate = alert('azzera tutto' + user1.azzeraChiamate())
-    //     )}
-    //   }
+    function azzeraChiamate() {
+        let btnAzzeraChiamate = document.querySelector("#azzera");
+        btnAzzeraChiamate === null || btnAzzeraChiamate === void 0 ? void 0 : btnAzzeraChiamate.addEventListener("click", () => {
+            let azzeraChiamate = alert("l'elenco di chiamate è: " + user1.azzeraChiamate());
+        });
+    }
     ricarica();
     chiama();
     mostraSaldo();
     chiamateEffettuate();
+    azzeraChiamate();
 });
 // function createSmartphone() {
 //   let chiamata = document.querySelector("#numeroChiamate") as HTMLInputElement;
