@@ -45,9 +45,7 @@ class Smartphone {
     // deve azzerare le chiamate
   }
 }
-let user1 = new Smartphone(0, 0);
-let user2 = new Smartphone(0, 0);
-let user3 = new Smartphone(0, 0);
+let user = new Smartphone(0, 0);
 
 document.addEventListener("DOMContentLoaded", () => {
   let display = document.querySelector(".display") as HTMLElement;
@@ -57,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     btnChiama?.addEventListener("click", () => {
       let tempoChiamata = Math.floor(Math.random() * 100 + 1);
       let valoreTempoChiamata = Number(tempoChiamata);
-      let chiamata = user1.chiamata(valoreTempoChiamata);
+      let chiamata = user.chiamata(valoreTempoChiamata);
       let time = new Date();
       display.innerHTML = "";
       display.innerHTML += `<p> Il tuo saldo è di: ${chiamata}€ aggiornato al ` + time.getDate() + "/" + time.getDay() + " " + time.getHours() + ":" + time.getMinutes() + `</p>`;
@@ -68,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
     btnRicarica?.addEventListener("click", () => {
       let ricarica = prompt("quanto vuoi caricare?");
       let valoreRicarica = Number(ricarica);
-      let carica = user1.ricarica(valoreRicarica);
+      let carica = user.ricarica(valoreRicarica);
       let time = new Date();
       display.innerHTML = "";
       display.innerHTML = `<p>credito: ${carica}€ aggiornato al ` + time.getDate() + "/" + time.getDay() + " " + time.getHours() + ":" + time.getMinutes() + `</p>`;
@@ -78,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let btnSaldo = document.querySelector("#mostraSaldo");
     let time = new Date();
     btnSaldo?.addEventListener("click", () => {
-      let saldo = user1.numero404();
+      let saldo = user.numero404();
       display.innerHTML = "";
       display.innerHTML = `<p>credito: ${saldo}€ aggiornato al ` + time.getDate() + "/" + time.getDay() + " " + time.getHours() + ":" + time.getMinutes() + `</p>`;
       // let saldo = alert("il tuo saldo è  " + user1.numero404() + " aggiornato al " + time.getDate() + "/" + time.getDay() + " " + time.getHours() + ":" + time.getMinutes());
@@ -88,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let btnChiamateEffettuate = document.querySelector("#chiamateEffettuate");
     let time = new Date();
     btnChiamateEffettuate?.addEventListener("click", () => {
-      let chiamateEffettuate = user1.getNumeroChiamate();
+      let chiamateEffettuate = user.getNumeroChiamate();
       display.innerHTML = "";
       display.innerHTML = `<p>Chiamate effettuate: ${chiamateEffettuate} aggiornato al ` + time.getDate() + "/" + time.getDay() + " " + time.getHours() + ":" + time.getMinutes() + `</p>`;
       // let chiamateFatte = alert(
@@ -100,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let btnAzzeraChiamate = document.querySelector("#azzera");
     let time = new Date();
     btnAzzeraChiamate?.addEventListener("click", () => {
-      let azzeraChiamate = user1.azzeraChiamate();
+      let azzeraChiamate = user.azzeraChiamate();
       display.innerHTML = "";
       display.innerHTML = `<p>Chiamate effettuate: ${azzeraChiamate} aggiornato al ` + time.getDate() + "/" + time.getDay() + " " + time.getHours() + ":" + time.getMinutes() + `</p>`;
       // let azzeraChiamate = alert("l'elenco di chiamate è: " + user1.azzeraChiamate() + " aggiornato al " + time.getDate() + "/" + time.getDay() + " " + time.getHours() + ":" + time.getMinutes());
