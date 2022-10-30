@@ -6,7 +6,13 @@ class Smartphone {
     }
     ricarica(credito) {
         this.carica += credito;
-        return this.carica;
+        if (isNaN(credito)) {
+            alert("inserire un valore valido");
+            return (this.carica = 0);
+        }
+        else {
+            return this.carica;
+        }
     }
     chiamata(durata) {
         if (this.carica === 0) {
@@ -16,7 +22,7 @@ class Smartphone {
             return this.ricarica(valoreRicarica);
         }
         else if (durata * 0.2 > this.carica) {
-            alert("Chiamata interrotta, credito");
+            alert("Chiamata interrotta, credito 0");
             return (this.carica = 0);
         }
         else {
@@ -51,8 +57,9 @@ document.addEventListener("DOMContentLoaded", () => {
             let tempoChiamata = Math.floor(Math.random() * 100 + 1);
             let valoreTempoChiamata = Number(tempoChiamata);
             let chiamata = user1.chiamata(valoreTempoChiamata);
+            let time = new Date();
             display.innerHTML = "";
-            display.innerHTML += `<p>${chiamata}</p>`;
+            display.innerHTML += `<p> Il tuo saldo è di: ${chiamata}€ aggiornato al ` + time.getDate() + "/" + time.getDay() + " " + time.getHours() + ":" + time.getMinutes() + `</p>`;
         });
     }
     function ricarica() {
@@ -63,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let carica = user1.ricarica(valoreRicarica);
             let time = new Date();
             display.innerHTML = "";
-            display.innerHTML = time.getDate() + "/" + time.getDay() + " " + time.getHours() + ":" + time.getMinutes() + `<p>credito: ${carica}</p>`;
+            display.innerHTML = `<p>credito: ${carica}€ aggiornato al ` + time.getDate() + "/" + time.getDay() + " " + time.getHours() + ":" + time.getMinutes() + `</p>`;
         });
     }
     function mostraSaldo() {
@@ -72,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
         btnSaldo === null || btnSaldo === void 0 ? void 0 : btnSaldo.addEventListener("click", () => {
             let saldo = user1.numero404();
             display.innerHTML = "";
-            display.innerHTML = `<p>credito: ${saldo} aggiornato al ` + time.getDate() + "/" + time.getDay() + " " + time.getHours() + ":" + time.getMinutes() + `</p>`;
+            display.innerHTML = `<p>credito: ${saldo}€ aggiornato al ` + time.getDate() + "/" + time.getDay() + " " + time.getHours() + ":" + time.getMinutes() + `</p>`;
             // let saldo = alert("il tuo saldo è  " + user1.numero404() + " aggiornato al " + time.getDate() + "/" + time.getDay() + " " + time.getHours() + ":" + time.getMinutes());
         });
     }
