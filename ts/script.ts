@@ -1,6 +1,7 @@
 class Smartphone {
   carica: number;
   private numeroChiamate: number;
+
   constructor(carica: number, numeroChiamate: number) {
     this.carica = carica;
     this.numeroChiamate = numeroChiamate;
@@ -10,14 +11,17 @@ class Smartphone {
     return this.carica;
   }
   chiamata(durata: number) {
-    if (this.carica <= 0) {
+    if (this.carica === 0) {
       alert("non hai abbastanza credito per chiamare!");
       let ricarica = prompt("devi fare una ricarica, il tuo saldo è 0");
       let valoreRicarica = Number(ricarica);
       return this.ricarica(valoreRicarica);
+    } else if (durata * 0.2 > this.carica) {
+      alert("Chiamata interrotta, credito");
+      return (this.carica = 0);
     } else {
-      this.numeroChiamate++;
       this.carica -= durata * 0.2;
+      this.numeroChiamate++;
     }
     return this.carica;
     //deve aggiungere la chiamata a numero chiamate
@@ -46,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function chiama() {
     let btnChiama = document.querySelector("#chiama");
     btnChiama?.addEventListener("click", () => {
-      let tempoChiamata = prompt("quanto dura la chiamata? ");
+      let tempoChiamata = Math.floor(Math.random() * 100 + 1);
       let valoreTempoChiamata = Number(tempoChiamata);
       let chiamata = user1.chiamata(valoreTempoChiamata);
       display.innerHTML = "";
