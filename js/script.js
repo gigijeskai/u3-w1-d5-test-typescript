@@ -66,21 +66,32 @@ document.addEventListener("DOMContentLoaded", () => {
         let btnSaldo = document.querySelector("#mostraSaldo");
         let time = new Date();
         btnSaldo === null || btnSaldo === void 0 ? void 0 : btnSaldo.addEventListener("click", () => {
-            let saldo = alert("il tuo saldo è  " + user1.numero404() + " aggiornato al " + time.getDate() + "/" + time.getDay() + " " + time.getHours() + ":" + time.getMinutes());
+            let saldo = user1.numero404();
+            display.innerHTML = "";
+            display.innerHTML = `<p>credito: ${saldo} aggiornato al ` + time.getDate() + "/" + time.getDay() + " " + time.getHours() + ":" + time.getMinutes() + `</p>`;
+            // let saldo = alert("il tuo saldo è  " + user1.numero404() + " aggiornato al " + time.getDate() + "/" + time.getDay() + " " + time.getHours() + ":" + time.getMinutes());
         });
     }
     function chiamateEffettuate() {
         let btnChiamateEffettuate = document.querySelector("#chiamateEffettuate");
         let time = new Date();
         btnChiamateEffettuate === null || btnChiamateEffettuate === void 0 ? void 0 : btnChiamateEffettuate.addEventListener("click", () => {
-            let chiamateFatte = alert("hai effettuato " + user1.getNumeroChiamate() + " chiamate " + " aggiornato al " + time.getDate() + "/" + time.getDay() + " " + time.getHours() + ":" + time.getMinutes());
+            let chiamateEffettuate = user1.getNumeroChiamate();
+            display.innerHTML = "";
+            display.innerHTML = `<p>Chiamate effettuate: ${chiamateEffettuate} aggiornato al ` + time.getDate() + "/" + time.getDay() + " " + time.getHours() + ":" + time.getMinutes() + `</p>`;
+            // let chiamateFatte = alert(
+            //   "hai effettuato " + user1.getNumeroChiamate() + " chiamate " + " aggiornato al " + time.getDate() + "/" + time.getDay() + " " + time.getHours() + ":" + time.getMinutes()
+            // );
         });
     }
     function azzeraChiamate() {
         let btnAzzeraChiamate = document.querySelector("#azzera");
         let time = new Date();
         btnAzzeraChiamate === null || btnAzzeraChiamate === void 0 ? void 0 : btnAzzeraChiamate.addEventListener("click", () => {
-            let azzeraChiamate = alert("l'elenco di chiamate è: " + user1.azzeraChiamate() + " aggiornato al " + time.getDate() + "/" + time.getDay() + " " + time.getHours() + ":" + time.getMinutes());
+            let azzeraChiamate = user1.azzeraChiamate();
+            display.innerHTML = "";
+            display.innerHTML = `<p>Chiamate effettuate: ${azzeraChiamate} aggiornato al ` + time.getDate() + "/" + time.getDay() + " " + time.getHours() + ":" + time.getMinutes() + `</p>`;
+            // let azzeraChiamate = alert("l'elenco di chiamate è: " + user1.azzeraChiamate() + " aggiornato al " + time.getDate() + "/" + time.getDay() + " " + time.getHours() + ":" + time.getMinutes());
         });
     }
     ricarica();
