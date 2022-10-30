@@ -1,0 +1,19 @@
+{
+  "name": "u3-w1-d5-test-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass assets/scss/style.scss assets/css/style.css --no-source-map -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gigijeskai/u3-w1-d5-test-typescript.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gigijeskai/u3-w1-d5-test-typescript/issues"
+  },
+  "homepage": "https://github.com/gigijeskai/u3-w1-d5-test-typescript#readme"
+}
