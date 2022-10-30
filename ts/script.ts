@@ -1,6 +1,6 @@
 class Smartphone {
   carica: number;
-  private numeroChiamate: number = 0;
+  private numeroChiamate: number;
   constructor(carica: number, numeroChiamate: number) {
     this.carica = carica;
     this.numeroChiamate = numeroChiamate;
@@ -41,25 +41,17 @@ let user2 = new Smartphone(0, 0);
 let user3 = new Smartphone(0, 0);
 
 document.addEventListener("DOMContentLoaded", () => {
-  let display = document.querySelector("#display") as HTMLElement;
-
-  function registraChiamata() {
-    let tempoChiamata = prompt("quanto dura la chiamata? ");
-    let valoreTempoChiamata = Number(tempoChiamata);
-    let chiamata = user1.chiamata(valoreTempoChiamata);
-    display.innerHTML = "";
-    display.innerHTML += `<p>${chiamata}</p>`;
-  }
+  let display = document.querySelector(".display") as HTMLElement;
 
   function chiama() {
-    let btnChiama1 = document.querySelector("#chiama1");
-    btnChiama1?.addEventListener("click", registraChiamata);
-
-    let btnChiama2 = document.querySelector("#chiama2");
-    btnChiama2?.addEventListener("click", registraChiamata);
-
-    let btnChiama3 = document.querySelector("#chiama3");
-    btnChiama3?.addEventListener("click", registraChiamata);
+    let btnChiama = document.querySelector("#chiama");
+    btnChiama?.addEventListener("click", () => {
+      let tempoChiamata = prompt("quanto dura la chiamata? ");
+      let valoreTempoChiamata = Number(tempoChiamata);
+      let chiamata = user1.chiamata(valoreTempoChiamata);
+      display.innerHTML = "";
+      display.innerHTML += `<p>${chiamata}</p>`;
+    });
   }
   function ricarica() {
     let btnRicarica = document.querySelector("#ricarica");
