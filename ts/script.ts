@@ -9,6 +9,9 @@ class Smartphone {
   ricarica(credito: number) {
     this.carica += credito;
     if (isNaN(credito)) {
+      // let notificaDisplay = document.querySelector(".display") as HTMLElement;
+      // notificaDisplay.innerHTML = "";
+      // return (notificaDisplay.innerHTML = "inserire un valore valido");
       alert("inserire un valore valido");
       return (this.carica = 0);
     } else {
